@@ -26,10 +26,10 @@ public class GameEvents : MonoBehaviour
 
     public void GamePause()
     {
+        IsGamePaused = true;
+        Time.timeScale = 0;
         if (OnGamePause != null)
         {
-            IsGamePaused = true;
-            Time.timeScale = 0;
             OnGamePause();
         }
     }
@@ -50,10 +50,11 @@ public class GameEvents : MonoBehaviour
     {
         if (OnGameResume != null)
         {
-            IsGamePaused = false;
-            Time.timeScale = 1;
             OnGameResume();
         }
+        IsGamePaused = false;
+        Time.timeScale = 1;
+        
     }
 
 

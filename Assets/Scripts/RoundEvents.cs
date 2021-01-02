@@ -58,20 +58,22 @@ public class RoundEvents : MonoBehaviour
 
     public void ScoreGoal(GameObject goal)
     {
+        if (goal == playerGoal)
+        {
+            playerScore += 1;
+        }
+        else
+        {
+            opponentScore += 1;
+        }
+
         if (OnScoreGoal != null)
         {
-            if (goal == playerGoal)
-            {
-                playerScore += 1;
-            }
-            else
-            {
-                opponentScore += 1;
-            }
-
-            EndRound();
+            
             OnScoreGoal(goal);
         }
+
+        EndRound();
     }
 
     public void EndRound()

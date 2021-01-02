@@ -2,20 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class Waffle : MonoBehaviour
 {
     public float speed = 200;
 
     private Vector2 velocity;
-    private AudioSource audioSource;
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
 
     }
@@ -31,7 +28,6 @@ public class Waffle : MonoBehaviour
                 Destroy(this.gameObject);
                 break;
             default:
-                audioSource.Play();
                 break;
         }
 
