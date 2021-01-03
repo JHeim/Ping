@@ -6,12 +6,16 @@ public class PauseMenu : MonoBehaviour
 {
 
     public GameObject PauseMenuInstance;
+    public GameObject PauseMenuPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameEvents.singleton.OnGamePause += EnablePauseMenu;
-        GameEvents.singleton.OnGameResume += DisablePauseMenu;
+        if (GameEvents.singleton != null)
+        {
+            GameEvents.singleton.OnGamePause += EnablePauseMenu;
+            GameEvents.singleton.OnGameResume += DisablePauseMenu;
+        }
     }
 
     // Update is called once per frame

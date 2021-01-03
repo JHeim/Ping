@@ -16,7 +16,7 @@ public class Scoreboard : MonoBehaviour
 
     void UpdateScoreboard(GameObject goal)
     {
-        playerScoreUI.text = RoundEvents.singleton.playerScore.ToString();
-        opponentScoreUI.text = RoundEvents.singleton.opponentScore.ToString();
+        playerScoreUI.text = RoundEvents.singleton.p1Score.ToString();
+        opponentScoreUI.text = RoundEvents.singleton.p2Score.ToString();
     }
 }

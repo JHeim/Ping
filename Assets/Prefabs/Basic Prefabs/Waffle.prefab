@@ -134,4 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fead43ec98eddd499b6105fd0718bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blipp: {fileID: 8300000, guid: d4d88cdbf45fc2240875d1a1c54e061f, type: 3}
+  goal: {fileID: 8300000, guid: de4b8a6e059b1cb43bddd066c7e4fa0e, type: 3}
   speed: 200

@@ -2,9 +2,10 @@ using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
     public float speed = 25f;
 
@@ -21,10 +22,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        //if (this.isLocalPlayer)
-        movementY = Input.GetAxisRaw("Vertical") * speed;
+        if (GameEvents.singleton.isSingleplayer || this.isLocalPlayer)
+        {
+            movementY = Input.GetAxisRaw("Vertical") * speed;
+        }
+        
 
-        if (Input.GetButtonDown("Pause"))
+        if (Input.GetButtonDown("Pause") && SceneManager.GetActiveScene() != SceneManager.GetSceneByName("MainMenu"))
         {
             GameEvents.singleton.TogglePause();
         }

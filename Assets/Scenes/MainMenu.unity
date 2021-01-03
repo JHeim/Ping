@@ -284,7 +284,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 658386649}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2091650489, guid: 84d37125d6b8dc74b80e363519467303, type: 3}
+        m_TargetAssemblyTypeName: GameEvents, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &658386649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,6 +487,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2091650489}
         m_TargetAssemblyTypeName: GameEvents, Assembly-CSharp
         m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2091650489, guid: 84d37125d6b8dc74b80e363519467303, type: 3}
+        m_TargetAssemblyTypeName: GameEvents, Assembly-CSharp
+        m_MethodName: PlayClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -858,6 +882,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2091650489, guid: 84d37125d6b8dc74b80e363519467303, type: 3}
+        m_TargetAssemblyTypeName: GameEvents, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1233142050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1008,7 +1044,7 @@ GameObject:
   - component: {fileID: 1468349220}
   - component: {fileID: 1468349219}
   m_Layer: 0
-  m_Name: Panel
+  m_Name: TitleMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1158,6 +1194,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1956143153, guid: 84d37125d6b8dc74b80e363519467303, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 163d825196ea6334aa93fe0504b6f9a3, type: 2}
     - target: {fileID: 8339290874955931620, guid: 84d37125d6b8dc74b80e363519467303, type: 3}
       propertyPath: m_RootOrder
       value: 3

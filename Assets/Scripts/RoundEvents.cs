@@ -7,19 +7,27 @@ public class RoundEvents : MonoBehaviour
 {
     public static RoundEvents singleton;
 
-    public GameObject opponent;
+    public Transform p1Spawn;
+    public Transform p2Spawn;
 
-    public GameObject playerGoal;
-    public GameObject opponentGoal;
+    [HideInInspector]
+    public GameObject player1;
+    [HideInInspector]
+    public GameObject player2;
+
+    public GameObject p1Goal;
+    public GameObject p2Goal;
 
     public GameObject waffle;
 
-    public int playerScore = 0;
-    public int opponentScore = 0;
+    public int p1Score = 0;
+    public int p2Score = 0;
 
     public event Action OnRoundStart;
 
     public event Action<GameObject> OnScoreGoal;
+
+    private AIController aiController;
 
     private void Awake()
     {
@@ -29,20 +37,30 @@ public class RoundEvents : MonoBehaviour
 
     private void Start()
     {
-
+        // Instantiate the players.
+        if (GameEvents.singleton.isSingleplayer)
+        {
+            player1 = Instantiate(GameEvents.singleton.player1, p1Spawn.position, p1Spawn.rotation);
+            player2 = Instantiate(GameEvents.singleton.player2, p2Spawn.position, p2Spawn.rotation);
+            aiController = player2.GetComponent<AIController>();
+        }
+        
         // Begin round-start timer.
         RoundCountdown();
         RoundStart();
+
+
     }
 
     public void RoundStart()
     {
         // Spawn a waffle x: 0, y: 0 - 3
         var waffleInstance = Instantiate(waffle, new Vector2(0, 0), Quaternion.identity);
-
-        // Tell the enemy AI what the ball is.
-        var aiController = opponent.GetComponent<AIController>();
-        aiController.ball = waffleInstance;
+        if (GameEvents.singleton.isSingleplayer)
+        {
+            // Tell the enemy AI what the target is.
+            aiController.target = waffleInstance;
+        }
 
         // Apply force to waffle.
         float y = UnityEngine.Random.Range(1, 4) * 100;
@@ -58,13 +76,13 @@ public class RoundEvents : MonoBehaviour
 
     public void ScoreGoal(GameObject goal)
     {
-        if (goal == playerGoal)
+        if (goal == p1Goal)
         {
-            playerScore += 1;
+            p1Score += 1;
         }
         else
         {
-            opponentScore += 1;
+            p2Score += 1;
         }
 
         if (OnScoreGoal != null)

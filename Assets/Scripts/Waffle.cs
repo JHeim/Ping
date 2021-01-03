@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Waffle : MonoBehaviour
 {
+    public AudioClip blipp;
+    public AudioClip goal;
+
     public float speed = 200;
 
     private Vector2 velocity;
@@ -24,10 +27,12 @@ public class Waffle : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Goal":
+                GameEvents.singleton.mainAudio.PlayOneShot(goal);
                 RoundEvents.singleton.ScoreGoal(collision.gameObject);
                 Destroy(this.gameObject);
                 break;
             default:
+                GameEvents.singleton.mainAudio.PlayOneShot(blipp);
                 break;
         }
 

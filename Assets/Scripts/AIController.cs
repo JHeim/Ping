@@ -7,7 +7,7 @@ public class AIController : MonoBehaviour
 {
     public float speed = 1;
 
-    public GameObject ball;
+    public GameObject target;
 
     private Rigidbody2D rb;
 
@@ -20,9 +20,9 @@ public class AIController : MonoBehaviour
     
     private void FixedUpdate()
     {
-        if (ball != null  && GameEvents.singleton.GetGamePaused() == false)
+        if (target != null  && GameEvents.singleton.GetGamePaused() == false)
         {
-            var ballPosition = ball.transform.position;
+            var ballPosition = target.transform.position;
 
             if (ballPosition.y > transform.position.y)
             {
